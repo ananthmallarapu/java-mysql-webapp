@@ -22,9 +22,9 @@ public class HelloServlet extends HttpServlet {
   {
     PrintWriter out = res.getWriter();
     out.println("<pre>");
-    out.println("Welcome to hello world!");
-    out.println("");
-    out.println("Reading /application.properties ...");
+    out.println("<h1>Welcome to  dev envronment !</h1>");
+    //out.println("");
+    //out.println("Reading /application.properties ...");
 
     Properties prop = new Properties();
     InputStream in = getClass().getResourceAsStream("/application.properties");
@@ -83,17 +83,27 @@ public class HelloServlet extends HttpServlet {
     }
 
     Statement stmt = null;
-    String query = "SELECT name FROM mjjs LIMIT 5;";
+    String query = "SELECT *  FROM deployment_history ;";
 
     try {
         stmt = connection.createStatement();
         ResultSet rs = stmt.executeQuery(query);
         int count = 0;
+	out.println("<table>");
+	out.println("<tr>");
+	out.println("<th>VERSION</th>");
+	out.println("<th>DEPLOYED DATE</th>");
+	out.println("</tr>");
+	out.println("<tr>");
         while (rs.next()) {
-            String name = rs.getString("name");
-            out.println("name="+name);
+            String date = rs.getString("date");
+	    String version = rs.getString("version");
+            out.println("<td>"+version+"</td>");
+	    out.println("<td>"+date+"</td>");
             count++;
         }
+	out.println("</tr>");
+	out.println("</table>");
         out.println("Successfully read "+count+" rows from the database");
     } catch (SQLException e ) {
         out.println("Your database table is either missing or incorectly formatted");

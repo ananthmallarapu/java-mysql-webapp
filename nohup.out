@@ -1,0 +1,49 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.drchuck:mjjs:war:0.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-war-plugin is missing. @ line 54, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Maven Jetty JDBC Servlet 0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] >>> maven-jetty-plugin:6.1.10:run (default-cli) > test-compile @ mjjs >>>
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ mjjs ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ mjjs ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ mjjs ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /root/maven-jetty-jdbc-servlet/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ mjjs ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] <<< maven-jetty-plugin:6.1.10:run (default-cli) < test-compile @ mjjs <<<
+[INFO] 
+[INFO] --- maven-jetty-plugin:6.1.10:run (default-cli) @ mjjs ---
+[INFO] Configuring Jetty for project: Maven Jetty JDBC Servlet
+[INFO] Webapp source directory = /root/maven-jetty-jdbc-servlet/src/main/webapp
+[INFO] web.xml file = /root/maven-jetty-jdbc-servlet/src/main/webapp/WEB-INF/web.xml
+[INFO] Classes = /root/maven-jetty-jdbc-servlet/target/classes
+[INFO] Logging to org.slf4j.impl.SimpleLogger(org.mortbay.log) via org.mortbay.log.Slf4jLog
+[INFO] Context path = /mjjs
+[INFO] Tmp directory =  determined at runtime
+[INFO] Web defaults = org/mortbay/jetty/webapp/webdefault.xml
+[INFO] Web overrides =  none
+[INFO] Webapp directory = /root/maven-jetty-jdbc-servlet/src/main/webapp
+[INFO] Starting jetty 6.1.10 ...
+[INFO] jetty-6.1.10
+[INFO] No Transaction manager found - if your webapp requires one, please configure one.
+[INFO] Started SelectChannelConnector@0.0.0.0:80
+[INFO] Started Jetty Server
+[INFO] Starting scanner at interval of 10 seconds.

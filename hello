@@ -1,0 +1,7 @@
+<pre>
+Welcome to hello world!
+
+Reading /application.properties ...
+name=tsugi
+Successfully read 1 rows from the database
+</pre>
