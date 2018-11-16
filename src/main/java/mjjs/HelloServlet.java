@@ -39,7 +39,8 @@ public class HelloServlet extends HttpServlet {
     String username = prop.getProperty("mjjs.datasource.username");
     String password = prop.getProperty("mjjs.datasource.password");
     String className = prop.getProperty("mjjs.datasource.driverClassName");
-
+    String deployment_version=prop.getProperty("mjjs.datasource.deployment_version");
+    String deployment_date=prop.getProperty("mjjs.datasource.deployment_date");
     if ( jdbc == null | username == null || 
         password == null || className == null ) {
         out.println("Example properties:");
@@ -84,11 +85,13 @@ public class HelloServlet extends HttpServlet {
 
     Statement stmt = null;
     String query = "SELECT *  FROM deployment_history ;";
+    
 
     try {
         stmt = connection.createStatement();
         ResultSet rs = stmt.executeQuery(query);
         int count = 0;
+	out.println("<p>current deployment version "+deployment_version+"deployed on "+deployment_date+"</p>") ;
 	out.println("<table>");
 	out.println("<tr>");
 	out.println("<th>VERSION</th>");
