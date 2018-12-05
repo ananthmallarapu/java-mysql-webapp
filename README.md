@@ -27,10 +27,10 @@ If you have changed any of the values in the example SQL above, edit
 the file `src/main/resources/application.properties` and edit these
 properties:
 
-    mjjs.datasource.url=jdbc:mysql://localhost:8889/sample_app
-    mjjs.datasource.username=sampleuser
-    mjjs.datasource.password=samplepassword
-    mjjs.datasource.driverClassName=com.mysql.jdbc.Driver
+    webapp.datasource.url=jdbc:mysql://localhost:8889/sample_app
+    webapp.datasource.username=sampleuser
+    webapp.datasource.password=samplepassword
+    webapp.datasource.driverClassName=com.mysql.jdbc.Driver
 
 
 
