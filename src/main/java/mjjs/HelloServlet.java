@@ -35,19 +35,19 @@ public class HelloServlet extends HttpServlet {
         in.close();
     }
 
-    String jdbc = prop.getProperty("mjjs.datasource.url");
-    String username = prop.getProperty("mjjs.datasource.username");
-    String password = prop.getProperty("mjjs.datasource.password");
-    String className = prop.getProperty("mjjs.datasource.driverClassName");
-    String deployment_version=prop.getProperty("mjjs.datasource.deployment_version");
-    String deployment_date=prop.getProperty("mjjs.datasource.deployment_date");
+    String jdbc = prop.getProperty("webapp.datasource.url");
+    String username = prop.getProperty("webapp.datasource.username");
+    String password = prop.getProperty("webapp.datasource.password");
+    String className = prop.getProperty("webapp.datasource.driverClassName");
+    String deployment_version=prop.getProperty("webapp.datasource.deployment_version");
+    String deployment_date=prop.getProperty("webapp.datasource.deployment_date");
     if ( jdbc == null | username == null || 
         password == null || className == null ) {
         out.println("Example properties:");
-        out.println("mjjs.datasource.url=jdbc:mysql://localhost:8889/mjjs");
-        out.println("mjjs.datasource.username=ltiuser");
-        out.println("mjjs.datasource.password=ltipassword");
-        out.println("mjjs.datasource.driverClassName=com.mysql.jdbc.Driver");
+        out.println("webapp.datasource.url=jdbc:mysql://localhost:3306/sample_app");
+        out.println("webapp.datasource.username=sampleuser");
+        out.println("webapp.datasource.password=samplepassword");
+        out.println("webapp.datasource.driverClassName=com.mysql.jdbc.Driver");
         out.println("</pre>");
         out.close();
         return;
@@ -71,9 +71,9 @@ public class HelloServlet extends HttpServlet {
         out.println("Your database server may be down.  Or if it is up");
         out.println("your database is missing or inaccessible.");
         out.println("");
-        out.println("CREATE DATABASE mjjs DEFAULT CHARACTER SET utf8;");
-        out.println("GRANT ALL ON mjjs.* TO 'mjjsuser'@'localhost' IDENTIFIED BY 'mjjspassword';");
-        out.println("GRANT ALL ON mjjs.* TO 'mjjsuser'@'127.0.0.1' IDENTIFIED BY 'mjjspassword';");
+        out.println("CREATE DATABASE sample_app DEFAULT CHARACTER SET utf8;");
+        out.println("GRANT ALL ON sample_app.* TO 'sampleuser'@'localhost' IDENTIFIED BY 'samplepassword';");
+        out.println("GRANT ALL ON sample_app.* TO 'sampleuser'@'127.0.0.1' IDENTIFIED BY 'samplepassword';");
         e.printStackTrace();
         return;
     }
@@ -114,8 +114,8 @@ public class HelloServlet extends HttpServlet {
     } catch (SQLException e ) {
         out.println("Your database table is either missing or incorectly formatted");
         out.println("");
-        out.println("CREATE TABLE mjjs (name TEXT) ENGINE = InnoDB DEFAULT CHARSET=utf8;");
-        out.println("INSERT INTO mjjs (name) VALUES ('tsugi');");
+        out.println("CREATE TABLE deployment_history (deployment_version TEXT,deployment_date TEXT ,last_restart_time TEXT) ENGINE = InnoDB DEFAULT CHARSET=utf8;");
+        out.println("INSERT INTO deployment_history (version,deployed_date,restart_time) VALUES ('beta','12-5-2018',(SELECT NOW()))");
         e.printStackTrace();
     }
 
