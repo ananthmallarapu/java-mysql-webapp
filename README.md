@@ -1,24 +1,35 @@
 
 A simple servlet that uses Maven, JDBC, and Jetty to say 'Hello world'
 
+Install The Database
+------------------
+    sudo apt-get update
+    sudo apt-get install mysql-server
+    sudo systemctl start mysql
+    sudo systemctl enable mysql
+    
+
 Setup The Database
 ------------------
 
 First, make a database, user, table and add a record:
-
-    CREATE DATABASE mjjs DEFAULT CHARACTER SET utf8;
-    GRANT ALL ON mjjs.* TO 'mjjsuser'@'localhost' IDENTIFIED BY 'mjjspassword';
-    GRANT ALL ON mjjs.* TO 'mjjsuser'@'127.0.0.1' IDENTIFIED BY 'mjjspassword';
-    CREATE TABLE mjjs (name TEXT) ENGINE = InnoDB DEFAULT CHARSET=utf8;
-    INSERT INTO mjjs (name) VALUES ('tsugi');
+login as root
+    
+    /usr/bin/mysql -u root -p
+    CREATE DATABASE sample_app DEFAULT CHARACTER SET utf8;
+    GRANT ALL ON sample_app.* TO 'sampleuser'@'localhost' IDENTIFIED BY 'samplepassword';
+    GRANT ALL ON sample_app.* TO 'sampleuser'@'127.0.0.1' IDENTIFIED BY 'samplepassword';
+    CREATE TABLE deployment_history (version TEXT,deployed_date TEXT,restart_time TEXT) ENGINE = InnoDB DEFAULT CHARSET=utf8;
+    INSERT INTO deployment_history (version,deployed_date,restart_time) VALUES ('beta','12-5-2018',(SELECT NOW()));
+    
 
 If you have changed any of the values in the example SQL above, edit
 the file `src/main/resources/application.properties` and edit these
 properties:
 
-    mjjs.datasource.url=jdbc:mysql://localhost:8889/mjjs
-    mjjs.datasource.username=mjjsuser
-    mjjs.datasource.password=mjjspassword
+    mjjs.datasource.url=jdbc:mysql://localhost:8889/sample_app
+    mjjs.datasource.username=sampleuser
+    mjjs.datasource.password=samplepassword
     mjjs.datasource.driverClassName=com.mysql.jdbc.Driver
 
 Build / Run
@@ -38,16 +49,16 @@ If you get this message:
 Fire up MAMP, go to localhost:8888/phpMyAdmin, click on SQL tab and
 copy paste these lines of SQL into the text box and hit "Go"
 
-    CREATE DATABASE mjjs DEFAULT CHARACTER SET utf8;
-    GRANT ALL ON mjjs.* TO 'mjjsuser'@'localhost' IDENTIFIED BY 'mjjspassword';
-    GRANT ALL ON mjjs.* TO 'mjjsuser'@'127.0.0.1' IDENTIFIED BY 'mjjspassword';
+    CREATE DATABASE sample_app DEFAULT CHARACTER SET utf8;
+    GRANT ALL ON sample_app.* TO 'sampleuser'@'localhost' IDENTIFIED BY 'samplepassword';
+    GRANT ALL ON sample_app.* TO 'sampleuser'@'127.0.0.1' IDENTIFIED BY 'samplepassword';
 
 Refresh the phpMyAdmin page, and mjjs now appears on the left.
 Click on the mjjs database and then click on the SQL tab. 
 Copy paste this command into the text box and hit go
 
-    CREATE TABLE mjjs (name TEXT) ENGINE = InnoDB DEFAULT CHARSET=utf8;
-    INSERT INTO mjjs (name) VALUES ('tsugi');
+    CREATE TABLE deployment_history (version TEXT,deployed_date TEXT,restart_time TEXT) ENGINE = InnoDB DEFAULT CHARSET=utf8;
+    INSERT INTO deployment_history (version,deployed_date,restart_time) VALUES ('beta','12-5-2018',(SELECT NOW()));
 
 Refresh this page: http://localhost:8080/mjjs/hello
 
