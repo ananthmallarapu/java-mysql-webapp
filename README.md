@@ -19,8 +19,8 @@ login as root
     CREATE DATABASE sample_app DEFAULT CHARACTER SET utf8;
     GRANT ALL ON sample_app.* TO 'sampleuser'@'localhost' IDENTIFIED BY 'samplepassword';
     GRANT ALL ON sample_app.* TO 'sampleuser'@'127.0.0.1' IDENTIFIED BY 'samplepassword';
-    CREATE TABLE deployment_history (version TEXT,deployed_date TEXT,restart_time TEXT) ENGINE = InnoDB DEFAULT CHARSET=utf8;
-    INSERT INTO deployment_history (version,deployed_date,restart_time) VALUES ('beta','12-5-2018',(SELECT NOW()));
+    CREATE TABLE deployment_history (deployment_version TEXT,deployement_date TEXT,last_restart_time TEXT) ENGINE = InnoDB DEFAULT CHARSET=utf8;
+    INSERT INTO deployment_history (deployment_version,deployment_date,restart_time) VALUES ('beta','12-5-2018',(SELECT NOW()));
     
 
 If you have changed any of the values in the example SQL above, edit
