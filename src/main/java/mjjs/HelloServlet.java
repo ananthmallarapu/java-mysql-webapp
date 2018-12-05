@@ -96,6 +96,7 @@ public class HelloServlet extends HttpServlet {
 	out.println("<tr>");
 	out.println("<th>VERSION</th>");
 	out.println("<th>DEPLOYED DATE</th>");
+	out.println("<th>LAST_RESTART_TIME</th>");
 	out.println("</tr>");
 	out.println("<tr>");
         while (rs.next()) {
