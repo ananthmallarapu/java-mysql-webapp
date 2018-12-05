@@ -32,6 +32,19 @@ properties:
     mjjs.datasource.password=samplepassword
     mjjs.datasource.driverClassName=com.mysql.jdbc.Driver
 
+
+
+install java 
+------------
+    sudo add-apt-repository ppa:webupd8team/java
+    sudo apt update; sudo apt install oracle-java8-installer
+    sudo apt install oracle-java8-set-default
+    
+install maven 
+--------------
+    sudo apt update
+    sudo apt install maven
+    
 Build / Run
 -----------
 
