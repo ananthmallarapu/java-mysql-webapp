@@ -99,10 +99,12 @@ public class HelloServlet extends HttpServlet {
 	out.println("</tr>");
 	out.println("<tr>");
         while (rs.next()) {
-            String date = rs.getString("date");
-	    String version = rs.getString("version");
+            String date = rs.getString("deployment_date");
+	    String version = rs.getString("deployment_version");
+	    String restart_time = rs.getString("last_restart_time");
             out.println("<td>"+version+"</td>");
 	    out.println("<td>"+date+"</td>");
+	    out.println("<td>"+restart_time+"</td>");
             count++;
         }
 	out.println("</tr>");
