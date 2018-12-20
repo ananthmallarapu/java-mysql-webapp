@@ -23,7 +23,7 @@ public class HelloServlet extends HttpServlet {
     PrintWriter out = res.getWriter();
     out.println("<pre>");
     out.println("<h1>Welcome to  dev envronment !</h1>");
-    out.println("<h1>new feature got added with updated version v8 !</h1>");
+    out.println("<h1>new feature got added with updated version v9 !</h1>");
     //out.println("");
     //out.println("Reading /application.properties ...");
 
